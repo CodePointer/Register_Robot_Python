@@ -109,7 +109,12 @@ def process_text(msg):
             itchat.send_msg(
                 'running at ' + time.strftime('%H:%M:%S,%p', time.localtime()),
                 toUserName='filehelper')
-
+        elif msg['Content'] == 'file':
+            # sent message
+            file_name = time.strftime('%Y_%m_%d.csv', time.localtime())
+            status = itchat.send_file(
+                file_name,
+                toUserName=globals_para['group_id'])
     return
 
 
